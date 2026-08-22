@@ -1,0 +1,16 @@
+---
+description: Tailwind CSS and reusable UI conventions for this Next.js project
+alwaysApply: true
+---
+
+# Tailwind UI Conventions
+
+- Use Tailwind CSS utilities for all new layout, spacing, typography, color, responsive, state, and animation styling.
+- Reuse semantic theme tokens from `app/globals.css` such as `bg-brand`, `text-ink`, `border-line`, `font-display`, and `shadow-card`.
+- Do not add hard-coded brand colors when an existing semantic token fits.
+- Keep custom CSS only for complex effects, third-party overrides, or shared patterns that are clearer than long utility lists.
+- Build reusable primitives in `components/ui/` when the same visual pattern appears more than once.
+- Use `cn()` from `lib/cn.ts` to combine conditional class names.
+- Keep business identity, contact details, social links, and navigation in `lib/site-config.ts`; do not duplicate these values in components.
+- Prefer server components. Add `"use client"` only when browser state, effects, or event handlers are required.
+- Preserve accessible focus states, semantic HTML, reduced-motion support, responsive behavior, and `next/image` optimization.
