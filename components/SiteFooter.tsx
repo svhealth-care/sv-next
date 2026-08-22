@@ -59,17 +59,7 @@ export function SiteFooter() {
       </div>
       <div className="container footer-bottom">
         <span>© 2026 S V Healthcare. All rights reserved.</span>
-        <span>
-          Quality care, accessible globally.{" "}
-          <a
-            href="https://colordesk.io/"
-            target="_blank"
-            rel="noreferrer"
-            className="footer-credit"
-          >
-            Developed by Colordesk
-          </a>
-        </span>
+        <span>Quality care, accessible globally. Developed by Colordesk</span>
       </div>
     </footer>
   );

@@ -1793,15 +1793,6 @@ a.contact-channel-card:hover {
   font-size: 11px;
 }
 
-.footer-credit {
-  color: rgba(255, 255, 255, 0.56);
-  transition: color 180ms ease;
-}
-
-.footer-credit:hover {
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .utility-buttons {
   position: fixed;
   z-index: 90;
