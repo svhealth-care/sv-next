@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/ButtonLink";
 import { BLOG_SLUGS } from "@/lib/blog-slugs";
 import { cn } from "@/lib/cn";
+import { prefetchIphexSlots } from "@/lib/iphex-slots-client";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 const navItems = SITE_CONFIG.navigation;
@@ -195,6 +196,12 @@ export function Header() {
           <button
             type="button"
             onClick={openBooking}
+            onMouseEnter={() => {
+              void prefetchIphexSlots().catch(() => undefined);
+            }}
+            onFocus={() => {
+              void prefetchIphexSlots().catch(() => undefined);
+            }}
             className={cn("desktop-cta", holographicButtonClassName)}
           >
             <span className="holographic-btn__label">
@@ -293,6 +300,9 @@ export function Header() {
           <button
             type="button"
             tabIndex={menuOpen ? 0 : -1}
+            onMouseEnter={() => {
+              void prefetchIphexSlots().catch(() => undefined);
+            }}
             onClick={() => {
               closeMenus();
               openBooking();

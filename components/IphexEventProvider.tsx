@@ -16,6 +16,7 @@ import { Modal } from "@/components/ui/Modal";
 import { holographicButtonClassName } from "@/components/ui/ButtonLink";
 import { cn } from "@/lib/cn";
 import { IPHEX_EVENT } from "@/lib/iphex-event";
+import { prefetchIphexSlots } from "@/lib/iphex-slots-client";
 
 type IphexEventContextValue = {
   openBooking: () => void;
@@ -38,7 +39,11 @@ export function IphexEventProvider({ children }: { children: ReactNode }) {
   const hideEventUi = pathname?.startsWith("/iphex-bookings") ?? false;
 
   useEffect(() => {
-    if (!hideEventUi) setPopupOpen(true);
+    if (hideEventUi) return;
+    setPopupOpen(true);
+    void prefetchIphexSlots().catch(() => {
+      // Availability is loaded again when the booking dialog opens.
+    });
   }, [hideEventUi]);
 
   const dismissPopup = useCallback(() => {

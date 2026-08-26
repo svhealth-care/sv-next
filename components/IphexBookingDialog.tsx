@@ -6,10 +6,13 @@ import { holographicButtonClassName } from "@/components/ui/ButtonLink";
 import { Modal } from "@/components/ui/Modal";
 import { cn } from "@/lib/cn";
 import { IPHEX_EVENT } from "@/lib/iphex-event";
-
-type AvailableSlot = (typeof IPHEX_EVENT.slots)[number] & {
-  available: boolean;
-};
+import {
+  getCachedIphexSlots,
+  invalidateIphexSlots,
+  prefetchIphexSlots,
+  type IphexAvailableSlot,
+  IPHEX_SLOT_PLACEHOLDERS,
+} from "@/lib/iphex-slots-client";
 
 type IphexBookingDialogProps = {
   open: boolean;
@@ -23,9 +26,13 @@ export function IphexBookingDialog({
   open,
   onClose,
 }: IphexBookingDialogProps) {
-  const [slots, setSlots] = useState<AvailableSlot[]>([]);
+  const [slots, setSlots] = useState<IphexAvailableSlot[]>(
+    () => getCachedIphexSlots() ?? IPHEX_SLOT_PLACEHOLDERS,
+  );
   const [selectedSlot, setSelectedSlot] = useState("");
-  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [loadingSlots, setLoadingSlots] = useState(
+    () => getCachedIphexSlots() === null,
+  );
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [confirmation, setConfirmation] = useState<{
@@ -34,22 +41,28 @@ export function IphexBookingDialog({
     emailSent: boolean;
   } | null>(null);
 
-  const loadSlots = useCallback(async () => {
+  const loadSlots = useCallback(async (force = false) => {
+    if (force) invalidateIphexSlots();
+    const cached = getCachedIphexSlots();
+    if (cached && !force) {
+      setSlots(cached);
+      setLoadingSlots(false);
+      setSelectedSlot((current) =>
+        cached.some((slot) => slot.id === current && slot.available)
+          ? current
+          : "",
+      );
+      return;
+    }
+
     setLoadingSlots(true);
     setError("");
 
     try {
-      const response = await fetch("/api/iphex/slots/", { cache: "no-store" });
-      const data = (await response.json()) as {
-        slots?: AvailableSlot[];
-        error?: string;
-      };
-      if (!response.ok || !data.slots) {
-        throw new Error(data.error || "Unable to load available slots.");
-      }
-      setSlots(data.slots);
+      const nextSlots = await prefetchIphexSlots(force);
+      setSlots(nextSlots);
       setSelectedSlot((current) =>
-        data.slots?.some((slot) => slot.id === current && slot.available)
+        nextSlots.some((slot) => slot.id === current && slot.available)
           ? current
           : "",
       );
@@ -103,10 +116,11 @@ export function IphexBookingDialog({
       };
 
       if (!response.ok || !data.booking) {
-        if (response.status === 409) void loadSlots();
+        if (response.status === 409) void loadSlots(true);
         throw new Error(data.error || "Unable to complete your booking.");
       }
 
+      invalidateIphexSlots();
       setConfirmation({
         ...data.booking,
         emailSent: data.emailSent !== false,
@@ -202,42 +216,38 @@ export function IphexBookingDialog({
               <legend className="mb-3 text-sm font-bold text-ink">
                 Available slots
               </legend>
-              {loadingSlots ? (
-                <p className="rounded-xl border border-line bg-surface p-4 text-sm text-ink/60">
-                  Checking availability…
-                </p>
-              ) : (
-                <div className="grid grid-cols-2 gap-2">
-                  {slots.map((slot) => (
-                    <label
-                      key={slot.id}
-                      className={`rounded-xl border p-3 text-sm transition ${
-                        slot.available
+              <div className="grid min-h-51 grid-cols-2 gap-2">
+                {slots.map((slot) => (
+                  <label
+                    key={slot.id}
+                    className={`min-h-16 rounded-xl border p-3 text-sm transition ${
+                      loadingSlots
+                        ? "animate-pulse cursor-wait border-line bg-surface text-ink/45"
+                        : slot.available
                           ? selectedSlot === slot.id
                             ? "cursor-pointer border-brand bg-brand/10 text-ink ring-1 ring-brand"
                             : "cursor-pointer border-line hover:border-brand/50"
                           : "cursor-not-allowed border-line bg-surface text-ink/35 line-through"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="slot"
-                        value={slot.id}
-                        checked={selectedSlot === slot.id}
-                        disabled={!slot.available}
-                        onChange={() => setSelectedSlot(slot.id)}
-                        className="sr-only"
-                      />
-                      <span className="block font-bold">
-                        {slot.shortDateLabel}
-                      </span>
-                      <span className="mt-0.5 block text-xs">
-                        {slot.timeLabel}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="slot"
+                      value={slot.id}
+                      checked={selectedSlot === slot.id}
+                      disabled={loadingSlots || !slot.available}
+                      onChange={() => setSelectedSlot(slot.id)}
+                      className="sr-only"
+                    />
+                    <span className="block font-bold">
+                      {slot.shortDateLabel}
+                    </span>
+                    <span className="mt-0.5 block text-xs">
+                      {slot.timeLabel}
+                    </span>
+                  </label>
+                ))}
+              </div>
             </fieldset>
 
             <div className="mt-5 grid gap-3 sm:grid-cols-2">

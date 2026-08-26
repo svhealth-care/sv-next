@@ -1,6 +1,6 @@
 export const IPHEX_EVENT = {
   name: "iPHEX 2026",
-  image: "/images/event/iphex.jpeg",
+  image: "/images/event/iphex.webp",
   venue: "Bharat Mandapam, New Delhi",
   timeZone: "Asia/Kolkata",
   slots: [
