@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  CalendarDays,
   ChevronDown,
   Mail,
   Menu,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useIphexEvent } from "@/components/IphexEventProvider";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -16,7 +18,10 @@ import {
 } from "@/components/SocialIcons";
 import { AppLink } from "@/components/ui/AppLink";
 import { BrandLogo } from "@/components/ui/BrandLogo";
-import { ButtonLink } from "@/components/ui/ButtonLink";
+import {
+  ButtonLink,
+  holographicButtonClassName,
+} from "@/components/ui/ButtonLink";
 import { BLOG_SLUGS } from "@/lib/blog-slugs";
 import { cn } from "@/lib/cn";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -50,6 +55,7 @@ function isProductsActive(pathname: string) {
 
 export function Header() {
   const pathname = usePathname() ?? "/";
+  const { openBooking } = useIphexEvent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const productsActive = isProductsActive(pathname);
@@ -186,9 +192,20 @@ export function Header() {
             })}
           </nav>
 
+          <button
+            type="button"
+            onClick={openBooking}
+            className={cn("desktop-cta", holographicButtonClassName)}
+          >
+            <span className="holographic-btn__label">
+              <CalendarDays size={17} aria-hidden="true" />
+              iPHEX
+            </span>
+          </button>
+
           <ButtonLink
             className={cn(
-              "desktop-cta ml-2",
+              "desktop-cta",
               isNavActive(pathname, "/contact-us") && "is-active",
             )}
             href="/contact-us"
@@ -273,6 +290,20 @@ export function Header() {
               </AppLink>
             );
           })}
+          <button
+            type="button"
+            tabIndex={menuOpen ? 0 : -1}
+            onClick={() => {
+              closeMenus();
+              openBooking();
+            }}
+            className={cn("mt-5 w-full", holographicButtonClassName)}
+          >
+            <span className="holographic-btn__label">
+              <CalendarDays size={18} aria-hidden="true" />
+              Book iPHEX slot
+            </span>
+          </button>
         </div>
       </nav>
     </>

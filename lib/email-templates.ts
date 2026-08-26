@@ -226,3 +226,80 @@ export function buildNewsletterEmailText(input: { email: string }) {
     "Source: Footer newsletter form",
   ].join("\n");
 }
+
+type IphexBookingEmailInput = {
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  venue: string;
+};
+
+function iphexBookingCard(input: IphexBookingEmailInput) {
+  return infoCard(`
+    ${detailRow("Date", input.date, undefined, { prominent: true })}
+    ${detailRow("Time", `${input.time} (IST)`)}
+    ${detailRow("Venue", input.venue)}
+    ${detailRow("Attendee", input.name)}
+    ${detailRow("Company", input.company)}
+    ${detailRow("Email", input.email, `mailto:${input.email}`)}
+    ${detailRow("Phone", input.phone, `tel:${input.phone.replace(/\s+/g, "")}`, { noBorder: true })}
+  `);
+}
+
+export function buildIphexBookingAdminHtml(input: IphexBookingEmailInput) {
+  return emailShell({
+    eyebrow: "iPHEX 2026 meeting",
+    title: "A new meeting slot has been booked",
+    intro:
+      "A visitor reserved an iPHEX meeting slot. The confirmed appointment and attendee details are below.",
+    bodyHtml: iphexBookingCard(input),
+    footerNote: "Reply to this email to contact the attendee directly.",
+  });
+}
+
+export function buildIphexBookingAdminText(input: IphexBookingEmailInput) {
+  return [
+    "New iPHEX 2026 meeting booking",
+    "",
+    `Date: ${input.date}`,
+    `Time: ${input.time} (IST)`,
+    `Venue: ${input.venue}`,
+    `Attendee: ${input.name}`,
+    `Company: ${input.company}`,
+    `Email: ${input.email}`,
+    `Phone: ${input.phone}`,
+  ].join("\n");
+}
+
+export function buildIphexBookingConfirmationHtml(
+  input: IphexBookingEmailInput,
+) {
+  return emailShell({
+    eyebrow: "Booking confirmed",
+    title: "Your iPHEX 2026 meeting is confirmed",
+    intro: `Hello ${input.name}, thank you for scheduling time with S V Healthcare. We look forward to meeting you in New Delhi.`,
+    bodyHtml: iphexBookingCard(input),
+    footerNote:
+      "Need to make a change? Reply to this email and our team will assist you.",
+  });
+}
+
+export function buildIphexBookingConfirmationText(
+  input: IphexBookingEmailInput,
+) {
+  return [
+    `Hello ${input.name},`,
+    "",
+    "Your meeting with S V Healthcare at iPHEX 2026 is confirmed.",
+    "",
+    `Date: ${input.date}`,
+    `Time: ${input.time} (IST)`,
+    `Venue: ${input.venue}`,
+    `Company: ${input.company}`,
+    "",
+    "Need to make a change? Reply to this email and our team will assist you.",
+  ].join("\n");
+}

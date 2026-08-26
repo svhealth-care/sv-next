@@ -5,6 +5,7 @@ type SendMailInput = {
   text: string;
   html: string;
   replyTo?: string;
+  to?: string | string[];
 };
 
 type SendMailResult =
@@ -28,12 +29,12 @@ function getMailConfig() {
 async function sendWithResend(
   input: SendMailInput,
   apiKey: string,
-  toEmail: string,
+  toEmails: string[],
   fromEmail: string,
 ): Promise<SendMailResult> {
   const payload = {
     from: `S V Healthcare <${fromEmail}>`,
-    to: [toEmail],
+    to: toEmails,
     subject: input.subject,
     text: input.text,
     html: input.html,
@@ -145,8 +146,15 @@ export async function sendSiteEmail(
   input: SendMailInput,
 ): Promise<SendMailResult> {
   const { apiKey, toEmail, fromEmail } = getMailConfig();
+  const toEmails = (
+    Array.isArray(input.to) ? input.to : [input.to || toEmail]
+  ).map((email) => email.trim());
 
-  if (!isValidEmail(toEmail) || !isValidEmail(fromEmail)) {
+  if (
+    toEmails.length === 0 ||
+    toEmails.some((email) => !isValidEmail(email)) ||
+    !isValidEmail(fromEmail)
+  ) {
     return {
       ok: false,
       message: "Email service is not configured.",
@@ -155,18 +163,25 @@ export async function sendSiteEmail(
   }
 
   if (apiKey) {
-    return sendWithResend(input, apiKey, toEmail, fromEmail);
+    return sendWithResend(input, apiKey, toEmails, fromEmail);
   }
 
   if (process.env.NODE_ENV !== "production") {
     console.info("[email:dev] RESEND_API_KEY missing — using FormSubmit fallback.", {
-      to: toEmail,
+      to: toEmails,
       subject: input.subject,
       replyTo: input.replyTo,
     });
   }
 
-  return sendWithFormSubmit(input, toEmail);
+  if (toEmails.length > 1) {
+    const results = await Promise.all(
+      toEmails.map((email) => sendWithFormSubmit(input, email)),
+    );
+    return results.find((result) => !result.ok) ?? results[0];
+  }
+
+  return sendWithFormSubmit(input, toEmails[0]);
 }
 
 export function escapeHtml(value: string) {

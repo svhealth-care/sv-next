@@ -164,6 +164,11 @@ img {
   outline-offset: 4px;
 }
 
+:is(input, textarea, select):focus-visible {
+  outline: none !important;
+  outline-offset: 0;
+}
+
 .topbar {
   color: rgba(255, 255, 255, 0.88);
   background: var(--navy-deep);

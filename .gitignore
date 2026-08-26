@@ -8,6 +8,9 @@
 
 # production
 /build
+/data/*.sqlite
+/data/*.sqlite-*
+/data/*.json
 
 # local
 .DS_Store

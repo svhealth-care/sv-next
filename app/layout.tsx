@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Manrope } from "next/font/google";
+import { IphexEventProvider } from "@/components/IphexEventProvider";
 import { RouteScrollManager } from "@/components/RouteScrollManager";
 import { SITE_CONFIG } from "@/lib/site-config";
 import "./globals.css";
@@ -147,7 +148,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
         <RouteScrollManager />
-        {children}
+        <IphexEventProvider>{children}</IphexEventProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
