@@ -79,7 +79,7 @@ export function IphexEventProvider({ children }: { children: ReactNode }) {
         />
         <div className="flex flex-col gap-3 border-t border-line bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p className="text-center text-sm font-semibold text-ink sm:text-left">
-            Meet us on 8–9 September. One-hour appointments are available.
+          Let’s connect with purpose, collaborate with passion, and create impact together.
           </p>
           <button
             type="button"

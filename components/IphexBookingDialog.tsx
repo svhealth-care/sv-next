@@ -1,11 +1,11 @@
 "use client";
 
 import { CalendarDays, CheckCircle2, Clock3, MapPin } from "lucide-react";
-import { type FormEvent, useCallback, useEffect, useState } from "react";
+import { type FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { holographicButtonClassName } from "@/components/ui/ButtonLink";
 import { Modal } from "@/components/ui/Modal";
 import { cn } from "@/lib/cn";
-import { IPHEX_EVENT } from "@/lib/iphex-event";
+import { getIphexSlotDays, IPHEX_EVENT } from "@/lib/iphex-event";
 import {
   getCachedIphexSlots,
   invalidateIphexSlots,
@@ -29,6 +29,7 @@ export function IphexBookingDialog({
   const [slots, setSlots] = useState<IphexAvailableSlot[]>(
     () => getCachedIphexSlots() ?? IPHEX_SLOT_PLACEHOLDERS,
   );
+  const [selectedDay, setSelectedDay] = useState("");
   const [selectedSlot, setSelectedSlot] = useState("");
   const [loadingSlots, setLoadingSlots] = useState(
     () => getCachedIphexSlots() === null,
@@ -40,6 +41,12 @@ export function IphexBookingDialog({
     time: string;
     emailSent: boolean;
   } | null>(null);
+
+  const days = useMemo(() => getIphexSlotDays(), []);
+  const slotsForSelectedDay = useMemo(
+    () => slots.filter((slot) => slot.dateKey === selectedDay),
+    [selectedDay, slots],
+  );
 
   const loadSlots = useCallback(async (force = false) => {
     if (force) invalidateIphexSlots();
@@ -81,6 +88,7 @@ export function IphexBookingDialog({
     if (!open) return;
     queueMicrotask(() => {
       setConfirmation(null);
+      setSelectedDay("");
       setSelectedSlot("");
       void loadSlots();
     });
@@ -190,11 +198,11 @@ export function IphexBookingDialog({
             <div className="mt-8 space-y-4 text-sm">
               <p className="flex gap-3">
                 <CalendarDays className="mt-0.5 shrink-0 text-brand" size={18} />
-                8–9 September 2026
+                {IPHEX_EVENT.datesLabel}
               </p>
               <p className="flex gap-3">
                 <Clock3 className="mt-0.5 shrink-0 text-brand" size={18} />
-                1:00 PM–4:00 PM IST
+                {IPHEX_EVENT.hoursLabel}
               </p>
               <p className="flex gap-3">
                 <MapPin className="mt-0.5 shrink-0 text-brand" size={18} />
@@ -214,39 +222,56 @@ export function IphexBookingDialog({
 
             <fieldset className="mt-6" disabled={loadingSlots || submitting}>
               <legend className="mb-3 text-sm font-bold text-ink">
-                Available slots
+                Meeting slot
               </legend>
-              <div className="grid min-h-51 grid-cols-2 gap-2">
-                {slots.map((slot) => (
-                  <label
-                    key={slot.id}
-                    className={`min-h-16 rounded-xl border p-3 text-sm transition ${
-                      loadingSlots
-                        ? "animate-pulse cursor-wait border-line bg-surface text-ink/45"
-                        : slot.available
-                          ? selectedSlot === slot.id
-                            ? "cursor-pointer border-brand bg-brand/10 text-ink ring-1 ring-brand"
-                            : "cursor-pointer border-line hover:border-brand/50"
-                          : "cursor-not-allowed border-line bg-surface text-ink/35 line-through"
-                    }`}
+              <div className="grid gap-3">
+                <label className="text-sm font-semibold text-ink">
+                  Day
+                  <select
+                    className={fieldClassName}
+                    value={selectedDay}
+                    onChange={(event) => {
+                      setSelectedDay(event.target.value);
+                      setSelectedSlot("");
+                    }}
+                    required
                   >
-                    <input
-                      type="radio"
-                      name="slot"
-                      value={slot.id}
-                      checked={selectedSlot === slot.id}
-                      disabled={loadingSlots || !slot.available}
-                      onChange={() => setSelectedSlot(slot.id)}
-                      className="sr-only"
-                    />
-                    <span className="block font-bold">
-                      {slot.shortDateLabel}
-                    </span>
-                    <span className="mt-0.5 block text-xs">
-                      {slot.timeLabel}
-                    </span>
-                  </label>
-                ))}
+                    <option value="">Select a day</option>
+                    {days.map((day) => (
+                      <option key={day.dateKey} value={day.dateKey}>
+                        {day.dateLabel}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-sm font-semibold text-ink">
+                  Time
+                  <select
+                    className={fieldClassName}
+                    value={selectedSlot}
+                    onChange={(event) => setSelectedSlot(event.target.value)}
+                    disabled={!selectedDay || loadingSlots}
+                    required
+                  >
+                    <option value="">
+                      {selectedDay
+                        ? loadingSlots
+                          ? "Checking availability…"
+                          : "Select a time"
+                        : "Select a day first"}
+                    </option>
+                    {slotsForSelectedDay.map((slot) => (
+                      <option
+                        key={slot.id}
+                        value={slot.id}
+                        disabled={!slot.available}
+                      >
+                        {slot.timeLabel}
+                        {slot.available ? "" : " (Booked)"}
+                      </option>
+                    ))}
+                  </select>
+                </label>
               </div>
             </fieldset>
 
