@@ -11,6 +11,7 @@
 /data/*.sqlite
 /data/*.sqlite-*
 /data/*.json
+!/data/iphex-bookings.json
 
 # local
 .DS_Store
