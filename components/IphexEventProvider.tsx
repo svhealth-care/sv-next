@@ -68,15 +68,18 @@ export function IphexEventProvider({ children }: { children: ReactNode }) {
         closeOnBackdrop={false}
         closeOnEscape={false}
       >
-        <Image
-          src={IPHEX_EVENT.image}
-          alt="S V Healthcare is attending iPHEX 2026 at Bharat Mandapam, New Delhi"
-          width={1024}
-          height={1024}
-          priority
-          draggable={false}
-          className="pointer-events-none h-auto w-full select-none"
-        />
+        <div className="relative aspect-square w-full overflow-hidden bg-surface">
+          <Image
+            src={IPHEX_EVENT.image}
+            alt="S V Healthcare is attending iPHEX 2026 at Bharat Mandapam, New Delhi"
+            fill
+            sizes="(max-width: 640px) 92vw, 576px"
+            priority
+            fetchPriority="high"
+            draggable={false}
+            className="pointer-events-none object-contain select-none"
+          />
+        </div>
         <div className="flex flex-col gap-3 border-t border-line bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p className="text-center text-sm font-semibold text-ink sm:text-left">
           Let’s connect with purpose, collaborate with passion, and create impact together.

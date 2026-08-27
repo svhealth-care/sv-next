@@ -146,6 +146,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/event/iphex.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+      </head>
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
         <RouteScrollManager />
         <IphexEventProvider>{children}</IphexEventProvider>
