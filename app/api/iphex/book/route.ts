@@ -6,7 +6,11 @@ import {
   buildIphexBookingConfirmationText,
 } from "@/lib/email-templates";
 import { claimIphexSlot } from "@/lib/iphex-bookings";
-import { getIphexSlot, IPHEX_EVENT } from "@/lib/iphex-event";
+import {
+  getIphexSlot,
+  IPHEX_EVENT,
+  isIphexEventEnabled,
+} from "@/lib/iphex-event";
 import { isValidInternationalPhone, normalizePhone } from "@/lib/phone";
 import { isValidEmail, sendSiteEmail } from "@/lib/resend-mail";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -14,6 +18,13 @@ import { SITE_CONFIG } from "@/lib/site-config";
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  if (!isIphexEventEnabled()) {
+    return NextResponse.json(
+      { error: "This event booking is currently closed." },
+      { status: 410 },
+    );
+  }
+
   let body: Record<string, unknown>;
 
   try {

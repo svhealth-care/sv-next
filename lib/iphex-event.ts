@@ -1,4 +1,9 @@
 export const IPHEX_EVENT = {
+  /**
+   * Feature flag: turn the public popup, navbar button, and booking form on/off.
+   * Keep the code for future events. Set to `true` when the next event is live.
+   */
+  enabled: false,
   name: "iPHEX 2026",
   image: "/images/event/iphex.webp",
   venue: "Bharat Mandapam, New Delhi",
@@ -143,6 +148,10 @@ export const IPHEX_EVENT = {
 } as const;
 
 export type IphexSlotId = (typeof IPHEX_EVENT.slots)[number]["id"];
+
+export function isIphexEventEnabled() {
+  return IPHEX_EVENT.enabled;
+}
 
 export function getIphexSlot(slotId: string) {
   return IPHEX_EVENT.slots.find((slot) => slot.id === slotId);

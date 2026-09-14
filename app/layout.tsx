@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Manrope } from "next/font/google";
 import { IphexEventProvider } from "@/components/IphexEventProvider";
 import { RouteScrollManager } from "@/components/RouteScrollManager";
+import { IPHEX_EVENT, isIphexEventEnabled } from "@/lib/iphex-event";
 import { SITE_CONFIG } from "@/lib/site-config";
 import "./globals.css";
 
@@ -146,15 +147,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/event/iphex.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
-      </head>
+      {isIphexEventEnabled() && (
+        <head>
+          <link
+            rel="preload"
+            as="image"
+            href={IPHEX_EVENT.image}
+            type="image/webp"
+            fetchPriority="high"
+          />
+        </head>
+      )}
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
         <RouteScrollManager />
         <IphexEventProvider>{children}</IphexEventProvider>

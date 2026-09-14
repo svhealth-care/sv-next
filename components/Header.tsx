@@ -56,7 +56,7 @@ function isProductsActive(pathname: string) {
 
 export function Header() {
   const pathname = usePathname() ?? "/";
-  const { openBooking } = useIphexEvent();
+  const { enabled: iphexEnabled, openBooking } = useIphexEvent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const productsActive = isProductsActive(pathname);
@@ -193,22 +193,24 @@ export function Header() {
             })}
           </nav>
 
-          <button
-            type="button"
-            onClick={openBooking}
-            onMouseEnter={() => {
-              void prefetchIphexSlots().catch(() => undefined);
-            }}
-            onFocus={() => {
-              void prefetchIphexSlots().catch(() => undefined);
-            }}
-            className={cn("desktop-cta", holographicButtonClassName)}
-          >
-            <span className="holographic-btn__label">
-              <CalendarDays size={17} aria-hidden="true" />
-              iPHEX
-            </span>
-          </button>
+          {iphexEnabled && (
+            <button
+              type="button"
+              onClick={openBooking}
+              onMouseEnter={() => {
+                void prefetchIphexSlots().catch(() => undefined);
+              }}
+              onFocus={() => {
+                void prefetchIphexSlots().catch(() => undefined);
+              }}
+              className={cn("desktop-cta", holographicButtonClassName)}
+            >
+              <span className="holographic-btn__label">
+                <CalendarDays size={17} aria-hidden="true" />
+                iPHEX
+              </span>
+            </button>
+          )}
 
           <ButtonLink
             className={cn(
@@ -297,23 +299,25 @@ export function Header() {
               </AppLink>
             );
           })}
-          <button
-            type="button"
-            tabIndex={menuOpen ? 0 : -1}
-            onMouseEnter={() => {
-              void prefetchIphexSlots().catch(() => undefined);
-            }}
-            onClick={() => {
-              closeMenus();
-              openBooking();
-            }}
-            className={cn("mt-5 w-full", holographicButtonClassName)}
-          >
-            <span className="holographic-btn__label">
-              <CalendarDays size={18} aria-hidden="true" />
-              Book iPHEX slot
-            </span>
-          </button>
+          {iphexEnabled && (
+            <button
+              type="button"
+              tabIndex={menuOpen ? 0 : -1}
+              onMouseEnter={() => {
+                void prefetchIphexSlots().catch(() => undefined);
+              }}
+              onClick={() => {
+                closeMenus();
+                openBooking();
+              }}
+              className={cn("mt-5 w-full", holographicButtonClassName)}
+            >
+              <span className="holographic-btn__label">
+                <CalendarDays size={18} aria-hidden="true" />
+                Book iPHEX slot
+              </span>
+            </button>
+          )}
         </div>
       </nav>
     </>

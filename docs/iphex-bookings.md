@@ -2,7 +2,23 @@
 
 Bookings are saved in a JSON file. There is no SQLite database.
 
-You can see every submission in the browser after deploy, without opening email.
+## Feature flag (on / off)
+
+Public event UI is controlled by `enabled` in `lib/iphex-event.ts`.
+
+```ts
+export const IPHEX_EVENT = {
+  enabled: false, // false = hide popup + navbar button + booking form
+  // ...
+};
+```
+
+- `false` → visitors do not see the event (current setting after iPHEX closed)
+- `true` → popup, iPHEX button, and booking form are live again
+
+Booking APIs return `410` when the event is disabled. The private admin page at `/iphex-bookings/` still works so you can review old submissions.
+
+For the next event: update name, image, dates, and slots, then set `enabled: true` and deploy.
 
 ## Local check
 
