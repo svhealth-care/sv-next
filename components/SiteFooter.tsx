@@ -38,6 +38,7 @@ export function SiteFooter() {
           <AppLink href="/our-services">Services</AppLink>
           <AppLink href="/export">Export</AppLink>
           <AppLink href="/blog">Blog</AppLink>
+          <AppLink href="/events">Events</AppLink>
           <AppLink href="/contact-us">Contact</AppLink>
         </div>
         <div>

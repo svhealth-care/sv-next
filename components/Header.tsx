@@ -177,7 +177,7 @@ export function Header() {
                 </div>
               )}
             </div>
-            {navItems.slice(3, 5).map((item) => {
+            {navItems.slice(3, -1).map((item) => {
               const active = isNavActive(pathname, item.href);
               return (
                 <AppLink

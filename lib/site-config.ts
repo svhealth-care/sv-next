@@ -29,6 +29,7 @@ export const SITE_CONFIG = {
     { label: "Services", href: "/our-services" },
     { label: "Export", href: "/export" },
     { label: "Blog", href: "/blog" },
+    { label: "Events", href: "/events" },
     { label: "Contact", href: "/contact-us" },
   ],
   productNavigation: [

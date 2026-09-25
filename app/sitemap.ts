@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-posts";
+import { siteEvents } from "@/lib/events";
 import { products } from "@/lib/products";
 import { SITE_CONFIG } from "@/lib/site-config";
 
@@ -35,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_CONFIG.url}/blog/`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_CONFIG.url}/events/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
@@ -79,5 +86,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...pages, ...productPages, ...blogPages];
+  const eventPages: MetadataRoute.Sitemap = siteEvents.map((event) => ({
+    url: `${SITE_CONFIG.url}/events/${event.slug}/`,
+    lastModified: new Date(event.dateIso),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...pages, ...productPages, ...blogPages, ...eventPages];
 }
