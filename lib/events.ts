@@ -70,11 +70,11 @@ export const siteEvents: SiteEvent[] = [
     excerpt:
       "Our team came together to welcome Lord Ganesha with devotion, decoration, prasadam, and the warmth of a shared celebration.",
     description:
-      "Ganesh Chaturthi at S V Healthcare is more than a festival — it is a reminder of new beginnings, teamwork, and gratitude. Colleagues gathered to decorate the mandap, offer prayers, share sweets, and celebrate the spirit of togetherness that defines our workplace culture.",
+      "Ganesh Chaturthi at S V Healthcare is more than a festival. It is a reminder of new beginnings, teamwork, and gratitude. Colleagues gathered to decorate the mandap, offer prayers, share sweets, and celebrate the spirit of togetherness that defines our workplace culture.",
     category: "festival",
     categoryLabel: "Festival",
-    date: "August 2026",
-    dateIso: "2026-08-27",
+    date: "14 Sept, 2026",
+    dateIso: "2026-09-14",
     location: "S V Healthcare, Ahmedabad",
     coverImage: `${ganeshBase}/6.webp`,
     coverImageAlt:
@@ -82,7 +82,7 @@ export const siteEvents: SiteEvent[] = [
     images: [
       {
         src: `${ganeshBase}/1.webp`,
-        alt: "Ganesh Chaturthi celebration at S V Healthcare — festive moment",
+        alt: "Ganesh Chaturthi celebration at S V Healthcare, festive moment",
         width: 1200,
         height: 1600,
       },
@@ -131,7 +131,7 @@ export const siteEvents: SiteEvent[] = [
     ],
     seoTitle: "Ganesh Chaturthi 2026 - S V Healthcare Events",
     seoDescription:
-      "See highlights from Ganesh Chaturthi 2026 at S V Healthcare — team celebration, devotion, and workplace culture in Ahmedabad.",
+      "See highlights from Ganesh Chaturthi 2026 at S V Healthcare: team celebration, devotion, and workplace culture in Ahmedabad.",
     keywords: [
       "Ganesh Chaturthi S V Healthcare",
       "SV Healthcare events",

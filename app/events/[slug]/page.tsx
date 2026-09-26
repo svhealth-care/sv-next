@@ -339,7 +339,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                   <span />
                   Join the journey
                 </div>
-                <h2>Building healthcare — and community</h2>
+                <h2>Building healthcare and community</h2>
                 <p>
                   Discover how S V Healthcare combines quality medicines with a
                   culture of celebration, care, and collaboration.

@@ -141,7 +141,7 @@ export default function EventsPage() {
               </div>
               <h2 id="event-types-title">Moments beyond the workday</h2>
               <p className="!mx-0 text-left">
-                From festivals and sports to trips and shared meals — these are
+                From festivals and sports to trips and shared meals, these are
                 the gatherings that keep our team connected, energized, and
                 proud to grow together.
               </p>
@@ -182,7 +182,7 @@ export default function EventsPage() {
               </div>
               <h2 id="event-gallery-title">Explore our event gallery</h2>
               <p className="!mx-0 text-left">
-                Browse celebrations and team moments captured across the year —
+                Browse celebrations and team moments captured across the year,
                 starting with Ganesh Chaturthi 2026.
               </p>
             </Reveal>
@@ -204,7 +204,7 @@ export default function EventsPage() {
                 <h2>Want to partner with a team that cares?</h2>
                 <p>
                   Talk to S V Healthcare about pharmaceutical, nutraceutical,
-                  and cosmetic solutions — backed by quality and a people-first
+                  and cosmetic solutions, backed by quality and a people-first
                   culture.
                 </p>
               </div>
