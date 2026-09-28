@@ -284,16 +284,16 @@ export default function AboutUsPage() {
             <Reveal className="about-intro-copy">
               <div className="eyebrow">
                 <span />
-                What about us
+                What about us ?
               </div>
               <h2>
                 To be the most trusted quality and cost-effective pharmaceutical
                 products supplier.
               </h2>
               <p>
-                S V Healthcare is a group of like-minded people having vision to
+                S V Healthcare is a group of like-minded people having the vision to
                 provide the best medicines in a cost-effective way. We are
-                Industry experienced people of more than 15 years in the field of
+                We are industry experienced people of more than 15 years in the fields of
                 Regulatory Affairs, Sales & Marketing, Research & Development.
                 Our team sources the products from manufacturing facilities that
                 meet the highest quality standards having accreditation of WHO
@@ -301,8 +301,7 @@ export default function AboutUsPage() {
               </p>
               <p>
                 To be preferred partner for domestic and global pharma clients by
-                ensuring availability of all possible pharma products with
-                desired quality and best price of cGMP/PICS/EU GMP /US FDA. Our
+                ensuring availability of all possible pharma products with the desired quality and best price of cGMP/PICS/EU GMP /US FDA. Our
                 scientific approach for work from conceptualization to
                 development of pharmaceutical products ensures success for our
                 clients.
@@ -421,7 +420,7 @@ export default function AboutUsPage() {
               </div>
               <h2>Our Vision</h2>
               <p>
-                SV Healthcare is recognized as one of the{" "}
+                S V Healthcare is recognized as one of the{" "}
                 <strong>best pharmaceutical companies in India</strong> and a
                 leading global force in the pharmaceutical industry. Our goal is
                 to promote innovation and excellence in healthcare by developing
