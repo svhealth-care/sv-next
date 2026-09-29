@@ -45,7 +45,7 @@ export type SiteEvent = {
   slug: string;
   title: string;
   excerpt: string;
-  description: string;
+  description: string[];
   category: EventCategoryId;
   categoryLabel: string;
   date: string;
@@ -69,8 +69,12 @@ export const siteEvents: SiteEvent[] = [
     title: "Ganesh Chaturthi 2026",
     excerpt:
       "Our team came together to welcome Lord Ganesha with devotion, decoration, prasadam, and the warmth of a shared celebration.",
-    description:
-      "Ganesh Chaturthi at S V Healthcare is more than a festival. It is a reminder of new beginnings, teamwork, and gratitude. Colleagues gathered to decorate the mandap, offer prayers, share sweets, and celebrate the spirit of togetherness that defines our workplace culture.",
+    description: [
+      "🙏 Ganpati Bappa Morya! 🙏",
+      "Festivals are best celebrated together, and this Ganesh Chaturthi, S V Healthcare family did just that! Dressed in traditional attire, our team gathered to welcome Bappa, offer prayers, and share moments of joy beyond our everyday work.",
+      "Celebrations like these remind us that behind every successful organization is a team that stands together with unity, positivity, and faith. May Lord Ganesha bless each one of us with good health, wisdom, and success in all our endeavors.",
+      "Grateful for this wonderful team!",
+    ],
     category: "festival",
     categoryLabel: "Festival",
     date: "14 Sept, 2026",

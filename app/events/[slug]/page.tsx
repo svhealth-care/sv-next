@@ -184,9 +184,13 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
               </div>
 
               <div className="px-[clamp(22px,3vw,40px)] pb-[clamp(28px,4vw,48px)] pt-5">
-                <p className="m-0 text-base leading-[1.8] text-ink-soft">
-                  {event.description}
-                </p>
+                <div className="grid gap-4 text-base leading-[1.8] text-ink-soft">
+                  {event.description.map((paragraph) => (
+                    <p key={paragraph} className="m-0">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
 
                 <ul className="mt-8 grid list-none gap-3 p-0 sm:grid-cols-2">
                   {event.highlights.map((highlight) => (
