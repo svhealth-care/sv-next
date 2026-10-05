@@ -105,8 +105,8 @@ export function HeroCarousel() {
         <div className="hero-proof">
           <CheckCircle2 />
           <div>
-            <strong>Globally compliant</strong>
-            <span>WHO GMP · PIC/S · EU GMP · US FDA</span>
+            <strong>Sourced to global standards</strong>
+            <span>WHO-GMP · PIC/S · EU GMP · US FDA</span>
           </div>
         </div>
       </div>

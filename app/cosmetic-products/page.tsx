@@ -98,7 +98,7 @@ const regions = [
   },
   {
     title: "Latin America",
-    text: "Bolivia, Chile, Ecuador, Honduras and Guatemala.",
+    text: "Guatemala, Honduras, El Salvador and Nicaragua.",
   },
 ];
 
@@ -259,7 +259,7 @@ export default function CosmeticProductsPage() {
                   Request a product list <ArrowRight size={18} />
                 </ButtonLink>
                 <ButtonLink variant="outline" href="/our-services">
-                  Explore our services
+                  Explore our capabilities
                 </ButtonLink>
               </div>
             </Reveal>

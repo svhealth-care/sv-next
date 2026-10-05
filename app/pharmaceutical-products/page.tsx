@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Pharmaceutical products",
     "pharmaceutical exporter",
     "WHO-GMP pharmaceutical products",
-    "EUGMP certified medicines",
+    "EU GMP standard medicines",
     "pharmaceutical tablets capsules syrups injections",
   ],
   alternates: { canonical: "/pharmaceutical-products" },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pharmaceutical Products - S V Healthcare",
     description:
-      "High-quality WHO-GMP and EUGMP pharmaceutical products for global markets.",
+      "High-quality WHO-GMP and EU GMP pharmaceutical products for global markets.",
     images: ["/images/products/pharmaceutical-hero.webp"],
   },
 };
@@ -65,7 +65,7 @@ const regions = [
   },
   {
     title: "Latin America",
-    text: "Bolivia, Chile, Ecuador, Honduras and Guatemala.",
+    text: "Guatemala, Honduras, El Salvador and Nicaragua.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function PharmaceuticalProductsPage() {
       <main>
         <PageHero
           title="Pharmaceutical Products"
-          description="High-quality WHO-GMP and EUGMP pharmaceutical formulations for global healthcare partners."
+          description="High-quality WHO-GMP and EU GMP pharmaceutical formulations for global healthcare partners."
           image="/images/products/pharmaceutical-hero.webp"
           imageAlt="Pharmaceutical products from S V Healthcare"
           breadcrumbs={[
@@ -161,7 +161,7 @@ export default function PharmaceuticalProductsPage() {
                 capsules, syrups, injections, ointments and creams that meet
                 various therapeutic needs. These products are carefully developed
                 in state-of-the-art facilities that adhere to stringent standards
-                of WHO-GMP and EUGMP, ensuring the highest levels of safety,
+                of WHO-GMP and EU GMP, ensuring the highest levels of safety,
                 efficacy and quality.
               </p>
 
@@ -191,8 +191,8 @@ export default function PharmaceuticalProductsPage() {
                 At S V Healthcare, we place the highest priority on quality. Our{" "}
                 <strong>pharmaceutical products</strong> undergo rigorous testing
                 and validation processes to meet international regulatory
-                standards. We maintain relevant certifications and regulatory
-                approvals, including approvals from health authorities such as
+                standards. We maintain the required regulatory approvals,
+                including approvals from health authorities such as
                 the Ghana Food and Drugs Authority, Kenya&apos;s Ministry of
                 Health, and Nigeria&apos;s National Agency for Food and Drug
                 Administration and Control (NAFDAC).
@@ -220,7 +220,7 @@ export default function PharmaceuticalProductsPage() {
                   Request a product list <ArrowRight size={18} />
                 </ButtonLink>
                 <ButtonLink variant="outline" href="/our-services">
-                  Explore our services
+                  Explore our capabilities
                 </ButtonLink>
               </div>
             </Reveal>

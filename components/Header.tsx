@@ -214,7 +214,7 @@ export function Header() {
 
           <ButtonLink
             className={cn(
-              "desktop-cta",
+              "desktop-cta shrink-0 whitespace-nowrap",
               isNavActive(pathname, "/contact-us") && "is-active",
             )}
             href="/contact-us"

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "about S V Healthcare",
     "best pharmaceutical companies in India",
     "top pharmaceutical companies in India",
-    "WHO GMP pharmaceutical exporter",
+    "WHO-GMP pharmaceutical exporter",
     "pharmaceutical company Ahmedabad",
   ],
   alternates: { canonical: "/about-us" },
@@ -87,7 +87,7 @@ const pillars = [
     image: "/images/about/global-expansion.webp",
     alt: "Global Expansion - S V Healthcare",
     paragraphs: [
-      "S V Healthcare is committed to global expansion, accessing new markets, and providing high-quality pharmaceutical solutions worldwide. Our strategic growth initiatives ensure that our innovative products and services are accessible across global markets, contributing to improved healthcare outcomes.",
+      "S V Healthcare is committed to global expansion, accessing new markets, and providing high-quality pharmaceutical solutions worldwide. Our strategic growth initiatives ensure that our innovative products are accessible across global markets, contributing to improved healthcare outcomes.",
       "Focused on expanding our international presence, we are dedicated to meeting the diverse needs of patients and healthcare providers around the world. S V Healthcare is committed to improving health outcomes and making a positive impact on global healthcare through innovation, quality, and reliable pharmaceutical solutions.",
     ],
   },
@@ -293,15 +293,17 @@ export default function AboutUsPage() {
               <p>
                 S V Healthcare is a group of like-minded people having the vision to
                 provide the best medicines in a cost-effective way. We are
-                We are industry experienced people of more than 15 years in the fields of
+                industry experienced people of more than 15 years in the fields of
                 Regulatory Affairs, Sales & Marketing, Research & Development.
                 Our team sources the products from manufacturing facilities that
-                meet the highest quality standards having accreditation of WHO
-                GMP / PICs / EU / FDA.
+                follow the highest quality standards, including WHO-GMP / PIC/S
+                / EU GMP / US FDA guidelines.
               </p>
               <p>
                 To be preferred partner for domestic and global pharma clients by
-                ensuring availability of all possible pharma products with the desired quality and best price of cGMP/PICS/EU GMP /US FDA. Our
+                ensuring availability of all possible pharma products with the
+                desired quality and best price from facilities following cGMP /
+                PIC/S / EU GMP / US FDA standards. Our
                 scientific approach for work from conceptualization to
                 development of pharmaceutical products ensures success for our
                 clients.
@@ -323,7 +325,7 @@ export default function AboutUsPage() {
                 teams.
               </p>
               <ul>
-                <li>WHO GMP / PIC/S / EU GMP / US FDA sourcing</li>
+                <li>WHO-GMP / PIC/S / EU GMP / US FDA sourcing</li>
                 <li>15+ years industry experience</li>
                 <li>Domestic and global partnership focus</li>
               </ul>
@@ -622,19 +624,16 @@ export default function AboutUsPage() {
                 <span />
                 Partner with us
               </div>
-              <h2>
-                S V Healthcare - WHO-GMP & EUGMP Certified Pharmaceuticals &
-                Nutraceuticals Exporter
-              </h2>
               <p>
-                S V Healthcare is a trusted WHO-GMP and EU GMP-certified exporter
-                of{" "}
+                S V Healthcare is a trusted exporter of{" "}
                 <AppLink href="/pharmaceutical-products">
                   pharmaceuticals
                 </AppLink>{" "}
                 and{" "}
-                <AppLink href="/nutraceutical-products">nutraceuticals</AppLink>
-                , supplying high-quality products to countries around the world.
+                <AppLink href="/nutraceutical-products">nutraceuticals</AppLink>{" "}
+                sourced from manufacturers that follow WHO-GMP and EU GMP
+                standards,
+                supplying high-quality products to countries around the world.
                 With a strong commitment to international standards, innovation,
                 and safety, we ensure that our products meet the highest quality
                 requirements, making us a preferred partner in global healthcare

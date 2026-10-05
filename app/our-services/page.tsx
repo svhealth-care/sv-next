@@ -19,7 +19,7 @@ import { SITE_CONFIG } from "@/lib/site-config";
 const baseUrl = SITE_CONFIG.url;
 
 export const metadata: Metadata = {
-  title: "Our Services - S V Healthcare",
+  title: "Our Capabilities - S V Healthcare",
   description:
     "S V Healthcare is one of the best pharmaceutical companies in India, committed to providing high-quality, innovative and affordable healthcare solutions globally.",
   keywords: [
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     "about S V Healthcare",
     "S V Healthcare company details",
     "pharmaceutical regulatory affairs",
-    "comparator drug sourcing RLD",
+    "pharmaceutical product licensing",
   ],
   alternates: { canonical: "/our-services" },
   openGraph: {
-    title: "Our Services - S V Healthcare",
+    title: "Our Capabilities - S V Healthcare",
     description:
       "S V Healthcare is one of the best pharmaceutical companies in India, committed to providing high-quality, innovative and affordable healthcare solutions globally.",
     url: "/our-services",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Services - S V Healthcare",
+    title: "Our Capabilities - S V Healthcare",
     description:
-      "Product licensing, regulatory affairs, distribution and comparator drug sourcing from S V Healthcare.",
+      "Product licensing, regulatory expertise and distribution behind S V Healthcare's pharmaceutical products.",
     images: ["/images/services/services-hero.webp"],
   },
 };
@@ -82,19 +82,19 @@ const services: ServiceOffering[] = [
   },
   {
     id: "regulatory",
-    label: "Regulatory Affairs services",
-    title: "Regulatory Affairs Consulting in India",
+    label: "Regulatory Affairs",
+    title: "Regulatory Expertise",
     icon: "/images/services/icon-regulatory.svg",
-    iconAlt: "Regulatory Affairs services",
+    iconAlt: "Regulatory Affairs",
     summary:
-      "End-to-end regulatory support from development and registration through commercialization.",
+      "In-house regulatory know-how that takes our products from registration to market.",
     sections: [
       {
         paragraphs: [
-          "At S V Healthcare, our team of pharmaceutical experts provides comprehensive support to help you navigate all regulatory aspects of the pharmaceutical industry in India and globally, from development and registration to commercialization.",
-          "We specialize in offering top-tier regulatory affairs consulting services, including CMC, quality assurance, non-clinical studies, toxicology, clinical trials, and medicinal product compliance.",
-          "Regulatory affairs professionals are a vital bridge between pharmaceutical companies and health authorities. They ensure seamless management of every stage of product development, maintaining transparency and efficiency. Our team is dedicated to ensuring regulatory compliance throughout the entire product lifecycle, from early-stage development to final approval and commercialization.",
-          "Partner with S V Healthcare to ensure that your pharmaceutical products meet the highest regulatory standards in India and across international markets.",
+          "At S V Healthcare, our team of pharmaceutical experts manages the regulatory aspects of our products in India and globally, from development and registration to commercialization.",
+          "Our regulatory expertise covers CMC, quality assurance, non-clinical studies, toxicology, clinical trials, and medicinal product compliance.",
+          "Regulatory affairs is a vital bridge between pharmaceutical companies and health authorities. Our team manages every stage of the product lifecycle with transparency and efficiency, from early-stage development to final approval and commercialization.",
+          "This expertise helps ensure that every S V Healthcare product meets the highest regulatory standards in India and across international markets.",
         ],
       },
     ],
@@ -116,49 +116,49 @@ const services: ServiceOffering[] = [
       },
     ],
   },
-  {
-    id: "rld",
-    label: "Comparator Drug Sourcing (RLD)",
-    title: "Comparator Drug Sourcing (RLD)",
-    icon: "/images/services/icon-rld.svg",
-    iconAlt: "Comparator Drug Sourcing (RLD)",
-    summary:
-      "Authentic reference-listed medicines for clinical trials with compliant global sourcing.",
-    sections: [
-      {
-        paragraphs: [
-          "At S V Healthcare, we specialize in comparator drug sourcing (RLD) across India and international markets, ensuring high-quality and compliant pharmaceutical products for clinical trials. Our strong network of certified suppliers and manufacturers enables us to provide authentic reference-listed medicines (RLD) at competitive prices, with timely delivery and full regulatory compliance.",
-        ],
-      },
-      {
-        heading: "Why Choose S V Healthcare for Comparator Drug Sourcing?",
-        bullets: [
-          {
-            title: "Global Network and Regulatory Expertise:",
-            text: " We understand the regulatory requirements of each region, ensuring compliance and seamless sourcing.",
-          },
-          {
-            title: "Audited and Reliable Supply Chain:",
-            text: " We collaborate with validated and traceable suppliers to guarantee product authenticity and quality.",
-          },
-          {
-            title:
-              "Cold Chain and Special Handling for Hard-to-Source Products:",
-            text: " Expertise in handling temperature-sensitive drugs, specialty pharmaceuticals, and hospital lines with GDP-compliant storage solutions.",
-          },
-          {
-            title: "End-to-End Logistics and Compliance:",
-            text: " Our secure distribution system ensures timely delivery with advanced packaging solutions, including Credo Box packaging and data loggers.",
-          },
-        ],
-      },
-      {
-        paragraphs: [
-          "At S V Healthcare, we are committed to providing cost-effective, compliant, and timely comparator drug sourcing to support clinical trials globally.",
-        ],
-      },
-    ],
-  },
+  // {
+  //   id: "rld",
+  //   label: "Comparator Drug Sourcing (RLD)",
+  //   title: "Comparator Drug Sourcing (RLD)",
+  //   icon: "/images/services/icon-rld.svg",
+  //   iconAlt: "Comparator Drug Sourcing (RLD)",
+  //   summary:
+  //     "Authentic reference-listed medicines for clinical trials with compliant global sourcing.",
+  //   sections: [
+  //     {
+  //       paragraphs: [
+  //         "At S V Healthcare, we specialize in comparator drug sourcing (RLD) across India and international markets, ensuring high-quality and compliant pharmaceutical products for clinical trials. Our strong network of trusted suppliers and manufacturers enables us to provide authentic reference-listed medicines (RLD) at competitive prices, with timely delivery and full regulatory compliance.",
+  //       ],
+  //     },
+  //     {
+  //       heading: "Why Choose S V Healthcare for Comparator Drug Sourcing?",
+  //       bullets: [
+  //         {
+  //           title: "Global Network and Regulatory Expertise:",
+  //           text: " We understand the regulatory requirements of each region, ensuring compliance and seamless sourcing.",
+  //         },
+  //         {
+  //           title: "Audited and Reliable Supply Chain:",
+  //           text: " We collaborate with validated and traceable suppliers to guarantee product authenticity and quality.",
+  //         },
+  //         {
+  //           title:
+  //             "Cold Chain and Special Handling for Hard-to-Source Products:",
+  //           text: " Expertise in handling temperature-sensitive drugs, specialty pharmaceuticals, and hospital lines with GDP-compliant storage solutions.",
+  //         },
+  //         {
+  //           title: "End-to-End Logistics and Compliance:",
+  //           text: " Our secure distribution system ensures timely delivery with advanced packaging solutions, including Credo Box packaging and data loggers.",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       paragraphs: [
+  //         "At S V Healthcare, we are committed to providing cost-effective, compliant, and timely comparator drug sourcing to support clinical trials globally.",
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 const servicesSchema = {
@@ -168,7 +168,7 @@ const servicesSchema = {
       "@type": "WebPage",
       "@id": `${baseUrl}/our-services/#webpage`,
       url: `${baseUrl}/our-services/`,
-      name: "Our Services - S V Healthcare",
+      name: "Our Capabilities - S V Healthcare",
       description:
         "S V Healthcare is one of the best pharmaceutical companies in India, committed to providing high-quality, innovative and affordable healthcare solutions globally.",
       isPartOf: { "@id": `${baseUrl}/#website` },
@@ -187,14 +187,14 @@ const servicesSchema = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Our Services",
+          name: "Our Capabilities",
           item: `${baseUrl}/our-services/`,
         },
       ],
     },
     {
       "@type": "ItemList",
-      name: "S V Healthcare Services",
+      name: "S V Healthcare Capabilities",
       itemListElement: services.map((service, index) => ({
         "@type": "ListItem",
         position: index + 1,
@@ -211,13 +211,13 @@ export default function OurServicesPage() {
       <Header />
       <main>
         <PageHero
-          title="Our Services"
-          description="Discovering the power of collaboration across licensing, regulatory affairs, distribution and comparator drug sourcing."
+          title="Our Capabilities"
+          description="The expertise behind our products, across licensing, regulatory affairs and distribution."
           image="/images/services/services-hero.webp"
           imageAlt="Medical Design Background Poster"
           breadcrumbs={[
             { label: "Home", href: "/" },
-            { label: "Our Services" },
+            { label: "Our Capabilities" },
           ]}
         />
 
@@ -250,7 +250,7 @@ export default function OurServicesPage() {
               </p>
               <div className="about-intro-actions">
                 <ButtonLink href="#service-offerings">
-                  View services <ArrowRight size={18} />
+                  View capabilities <ArrowRight size={18} />
                 </ButtonLink>
                 <ButtonLink variant="outline" href="#contact">
                   Get in touch
@@ -278,13 +278,13 @@ export default function OurServicesPage() {
             <Reveal className="section-heading centered" y={36}>
               <div className="eyebrow">
                 <span />
-                What we offer
+                How we work
               </div>
-              <h2>Our Services</h2>
+              <h2>Our Capabilities</h2>
               <p>
-                From product licensing and regulatory consulting to logistics and
-                comparator drug sourcing, we support partners across the
-                pharmaceutical lifecycle.
+                Product licensing, regulatory expertise and logistics strengthen
+                how we source, register and deliver quality pharmaceutical
+                products to markets worldwide.
               </p>
             </Reveal>
             <ServiceOfferings services={services} />
@@ -344,19 +344,16 @@ export default function OurServicesPage() {
                 <span />
                 Global export partner
               </div>
-              <h2>
-                S V Healthcare – WHO-GMP & EU GMP-Certified Pharmaceutical &
-                Nutraceutical Exporter
-              </h2>
               <p>
-                S V Healthcare is a trusted WHO-GMP and EU GMP-certified
-                exporter of{" "}
+                S V Healthcare is a trusted exporter of{" "}
                 <AppLink href="/pharmaceutical-products">
                   pharmaceuticals
                 </AppLink>{" "}
                 and{" "}
-                <AppLink href="/nutraceutical-products">nutraceuticals</AppLink>
-                , supplying high-quality products to markets across the globe.
+                <AppLink href="/nutraceutical-products">nutraceuticals</AppLink>{" "}
+                sourced from manufacturers that follow WHO-GMP and EU GMP
+                standards,
+                supplying high-quality products to markets across the globe.
                 With a strong commitment to international standards, innovation,
                 and safety, we ensure that our products meet rigorous quality
                 requirements, making us a preferred partner for global

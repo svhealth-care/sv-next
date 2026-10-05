@@ -57,8 +57,8 @@ const categories = [
 
 const benefits = [
   {
-    title: "Best Quality & Compliance",
-    text: "Sourced from accredited facilities that meet demanding global standards.",
+    title: "Assured Quality & Compliance",
+    text: "Sourced from facilities that follow demanding global standards.",
     icon: ShieldCheck,
   },
   {
@@ -67,7 +67,7 @@ const benefits = [
     icon: Globe2,
   },
   {
-    title: "Quality and Trust",
+    title: "Patient Safety & Trust",
     text: "Reliable healthcare products built around safety, consistency and patient care.",
     icon: PackageCheck,
   },
@@ -150,9 +150,9 @@ export default function Home() {
               </p>
               <p>
                 As one of the top pharma companies in India, we source our
-                products from manufacturing facilities that meet the highest
-                quality standards, accredited with WHO GMP, PIC, EU GMP and US
-                FDA certifications.
+                products from manufacturing facilities that follow the highest
+                quality standards, including WHO-GMP, PIC/S, EU GMP and US FDA
+                guidelines.
               </p>
               <p>
                 Our goal is to become the preferred partner for both domestic

@@ -96,7 +96,7 @@ const regions = [
   },
   {
     title: "Latin America",
-    text: "Bolivia, Chile, Ecuador, Honduras and Guatemala.",
+    text: "Guatemala, Honduras, El Salvador and Nicaragua.",
   },
   {
     title: "Western Asia",
@@ -220,8 +220,8 @@ export default function NutraceuticalProductsPage() {
               <p>
                 S V Healthcare is committed to delivering{" "}
                 <strong>nutraceutical products</strong> that meet the highest
-                quality standards. Our products are manufactured in GMP-certified
-                facilities, ensuring they are safe, effective, and compliant with
+                quality standards. Our products are manufactured in facilities
+                that follow GMP guidelines, ensuring they are safe, effective, and compliant with
                 international regulations. We use only high-quality raw materials
                 and employ rigorous testing protocols to ensure the purity and
                 potency of our products.
@@ -256,7 +256,7 @@ export default function NutraceuticalProductsPage() {
                   Request a product list <ArrowRight size={18} />
                 </ButtonLink>
                 <ButtonLink variant="outline" href="/our-services">
-                  Explore our services
+                  Explore our capabilities
                 </ButtonLink>
               </div>
             </Reveal>

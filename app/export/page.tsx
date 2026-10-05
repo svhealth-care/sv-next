@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "top pharma exporters in India",
     "pharma exports from India",
     "WHO-GMP pharmaceutical exporter",
-    "EUGMP certified exporter",
+    "EU GMP pharmaceutical exporter",
     "pharmaceutical export India",
     "S V Healthcare export",
   ],
@@ -102,7 +102,7 @@ const regions = [
   },
   {
     title: "Latin America",
-    text: "Bolivia, Chile, Ecuador, Honduras and Guatemala.",
+    text: "Guatemala, Honduras, El Salvador and Nicaragua.",
   },
   {
     title: "Western Asia",
@@ -176,8 +176,9 @@ export default function ExportPage() {
               <p>
                 S V Healthcare is a leading name in pharmaceutical exports from
                 India and is recognized as one of the top pharma export companies
-                in the country. As a WHO-GMP-certified company based in
-                Ahmedabad, Gujarat, we are dedicated to improving global health
+                in the country. Based in Ahmedabad, Gujarat, and sourcing from
+                facilities that follow WHO-GMP standards, we are dedicated to
+                improving global health
                 through rigorous research, manufacturing, and marketing. Our
                 commitment to excellence has made us one of the leading pharma
                 exporters in India, providing safe and effective pharmaceutical
@@ -206,8 +207,8 @@ export default function ExportPage() {
                 As a leading pharma export company, we have established strong
                 global partnerships across Southeast Asia, Central Asia, Africa,
                 Western Asia, and Latin America. Our adherence to strict quality
-                standards and multiple international certifications ensures that
-                our products meet global regulatory requirements and provide
+                standards ensures that our products meet global regulatory
+                requirements and provide
                 effective healthcare solutions.
               </p>
               <p>
@@ -319,21 +320,19 @@ export default function ExportPage() {
             <Reveal className="services-exporter-copy" y={40}>
               <div className="eyebrow">
                 <span />
-                Certified global exporter
+                Global export partner
               </div>
-              <h2>
-                S V Healthcare – WHO-GMP & EU GMP-Certified Pharmaceutical &
-                Nutraceutical Exporter
-              </h2>
               <p>
-                S V Healthcare is a trusted WHO-GMP and EU GMP-certified{" "}
+                S V Healthcare is a trusted{" "}
                 <strong>
                   exporter of{" "}
                   <Link href="/pharmaceutical-products">pharmaceuticals</Link>{" "}
                   and{" "}
                   <Link href="/nutraceutical-products">nutraceuticals</Link>
-                </strong>
-                , supplying high-quality products to markets across the globe.
+                </strong>{" "}
+                sourced from manufacturers that follow WHO-GMP and EU GMP
+                standards,
+                supplying high-quality products to markets across the globe.
                 With a strong commitment to international standards, innovation,
                 and safety, we ensure that our products meet rigorous quality
                 requirements, making us a preferred partner for global

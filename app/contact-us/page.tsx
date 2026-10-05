@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "contact best pharma export companies in India",
     "S V Healthcare contact",
     "pharmaceutical company Ahmedabad contact",
-    "WHO GMP pharmaceutical exporter contact",
+    "WHO-GMP pharmaceutical exporter contact",
   ],
   alternates: { canonical: "/contact-us" },
   openGraph: {
@@ -269,12 +269,8 @@ export default function ContactUsPage() {
                 <span />
                 Global export partner
               </div>
-              <h2>
-                S V Healthcare – WHO-GMP & EU GMP-Certified Pharmaceutical &
-                Nutraceutical Exporter
-              </h2>
               <p>
-                S V Healthcare is a trusted WHO-GMP and EU GMP-certified{" "}
+                S V Healthcare is a trusted{" "}
                 <strong>
                   exporter of{" "}
                   <AppLink href="/pharmaceutical-products">
@@ -282,8 +278,10 @@ export default function ContactUsPage() {
                   </AppLink>{" "}
                   and{" "}
                   <AppLink href="/nutraceutical-products">nutraceuticals</AppLink>
-                </strong>
-                , supplying high-quality products to markets across the globe.
+                </strong>{" "}
+                sourced from manufacturers that follow WHO-GMP and EU GMP
+                standards,
+                supplying high-quality products to markets across the globe.
                 With a strong commitment to international standards, innovation,
                 and safety, we ensure that our products meet rigorous quality
                 requirements, making us a preferred partner for global
