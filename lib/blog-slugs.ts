@@ -1,4 +1,5 @@
 export const BLOG_SLUGS = [
+  "fatty-liver-causes-symptoms-lifestyle-management",
   "diabetes-in-2026-causes-symptoms-types-treatment-options",
   "to-which-markets-should-india-focus-its-fdf-exports",
   "how-to-maintain-family-health-during-seasonal-changes",

@@ -3530,7 +3530,7 @@ a.contact-channel-card:hover {
 }
 
 .blog-listing-media img {
-  object-fit: cover;
+  /* object-fit: cover; */
   transition: transform 0.28s ease;
 }
 
