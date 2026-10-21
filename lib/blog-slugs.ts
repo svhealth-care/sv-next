@@ -1,4 +1,5 @@
 export const BLOG_SLUGS = [
+  "milk-thistle-for-liver-health-benefits-uses-safety",
   "fatty-liver-causes-symptoms-lifestyle-management",
   "diabetes-in-2026-causes-symptoms-types-treatment-options",
   "to-which-markets-should-india-focus-its-fdf-exports",
