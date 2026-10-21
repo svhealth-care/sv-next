@@ -1,4 +1,6 @@
 export const BLOG_SLUGS = [
+  "how-to-stay-healthy-during-festival-season",
+  "who-gmp-vs-eu-gmp-understanding-pharmaceutical-quality-standards",
   "milk-thistle-for-liver-health-benefits-uses-safety",
   "fatty-liver-causes-symptoms-lifestyle-management",
   "diabetes-in-2026-causes-symptoms-types-treatment-options",

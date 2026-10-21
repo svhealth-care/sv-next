@@ -3837,6 +3837,27 @@ a.contact-channel-card:hover {
   border-radius: 16px;
 }
 
+.blog-article-content table {
+  width: 100%;
+  margin: 0 0 18px;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.blog-article-content th,
+.blog-article-content td {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-article-content th {
+  background: var(--sky);
+  color: var(--ink);
+}
+
 .blog-article-content .wp-block-rank-math-toc-block {
   margin: 8px 0 28px;
   padding: 22px 24px;
