@@ -1,4 +1,7 @@
 export const BLOG_SLUGS = [
+  "calcium-magnesium-zinc-why-these-minerals-matter",
+  "common-winter-health-problems-and-how-to-prevent-them",
+  "air-pollution-and-respiratory-health-practical-protection-tips",
   "how-to-stay-healthy-during-festival-season",
   "who-gmp-vs-eu-gmp-understanding-pharmaceutical-quality-standards",
   "milk-thistle-for-liver-health-benefits-uses-safety",
